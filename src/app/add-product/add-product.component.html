@@ -1,0 +1,63 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="input-group">
+          <div class="card" style="width: 39rem;align-content: center;border: none;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+            <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+              <h1 style="padding-bottom: 5px;background-color: aqua;text-align: center;" *ngIf="text" >Add Product</h1>  
+              <h1 style="padding-bottom: 5px;background-color: aqua;text-align: center;" *ngIf="!text" >Update Product</h1> 
+                 <div class="form-group ">
+                        <label for="" class="font-weight-bold">Product Name</label>
+                         <input class="form-control" type="text" [(ngModel)]="product.productName" name="productName">
+                  
+                 </div>
+          
+                 <div class="form-group">
+                      <label for="" class="font-weight-bold">Product Category</label>
+                      <select class="form-control"  [(ngModel)]="product.productCategory" name="productCategory">
+                        <option value="Allopathy">Allopathy</option>
+                        <option value="Homeopathy">Homeopathy</option>
+                        <option value="Ayurvedic">Ayurvedic</option>
+                        <option value="Baby">Baby</option>
+                        <option value="Skin">Skin</option>
+                        <option value="Fitness">Fitness</option>
+                      </select>
+                  
+              </div>
+          
+                 <div class="form-group">
+                  <label for="" class="font-weight-bold">Product Price</label>
+                         <input class="form-control" type="number" [(ngModel)]="product.productPrice" name="productPrice"> 
+                 </div>
+            
+                 <div class="form-group">
+                  <label for="" class="font-weight-bold">Product Discount Price</label>
+                         <input class="form-control" type="number"  [(ngModel)]="product.discountPrice" name="discountPrice">
+                 </div>
+                 
+                 <div class="form-group">
+                  <label for="" class="font-weight-bold">Product Images</label><br>
+                  <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
+                 </div>
+             
+             <div class="form-group">
+              <label for="" class="font-weight-bold">Product Description</label>
+                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="product.productDescription" name="productDescription"></textarea>
+             </div>
+              
+             
+          
+             
+             
+                 
+                 <button class="btn btn-primary btn-block" type="submit" *ngIf="actionBtn" >Add Products</button>
+                 <button class="btn btn-danger btn-block"  type="submit" *ngIf="!actionBtn">Update</button>
+             
+          </form>
+          </div>
+        </div>
+    </div>
+  
+  
+</div>
+

@@ -1,0 +1,80 @@
+
+
+
+  <div class="container mx-auto pt-3">
+    <button mat-raised-button  color="warn" routerLink="/add">
+        Add Products+
+      </button>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Sr.no </th>
+        <td mat-cell *matCellDef="let element let  i = index"> {{no+i}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">{{element.productCategory}} </td>
+      </ng-container>
+    
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.productPrice}} </td>
+      </ng-container>
+    
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="discount">
+        <th mat-header-cell *matHeaderCellDef> Discount </th>
+        <td mat-cell *matCellDef="let element"> {{element.discountPrice}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.productDescription}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="showImage(element)">
+            <mat-icon>image</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-icon-button color="primary"(click)="editProduct(element.productId)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="deleteProduct(element.productId)"><mat-icon>delete</mat-icon></button>
+        </td>
+        </ng-container>
+        <ng-container matColumnDef="active">
+          <th mat-header-cell *matHeaderCellDef>Enable/Disable</th>  
+        <td mat-cell *matCellDef="let element"> 
+          <button class="btn btn-primary" (click)="enable(element.productId)">{{element.active == 1 ? 'Disabled' : 'Enabled'}}</button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    
+      
+    
+</div>
+  

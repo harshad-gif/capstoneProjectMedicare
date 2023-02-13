@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 mb-4" >
+            <div class="card">
+                <img class="card-img-top" [src]="product.productImage[0].url" alt="">
+            </div>
+        </div>
+    
+        <div class="col-lg-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="" alt="">
+    
+                <div class="card-body">
+                    <h1 class="card-title"> {{product.productName}}</h1>
+                    <p class="card-text" style="font-size: medium;">
+                       Description: <br>
+                       {{product.productDescription}}
+                    </p>
+                    <del style="color: gray;">Price ₹  {{product.productPrice}}</del>
+                    <p  style="font-size:large;">Price : ₹  {{product.discountPrice}}</p>
+
+                    <button class="btn btn-danger btn-block" (click)="buy(product.productId)">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+   

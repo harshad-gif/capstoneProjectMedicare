@@ -1,0 +1,79 @@
+    <div class="container-fluid my-3">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search any Products"
+                     name="searchkey" id="searchkey" #searchkeyword (keyup)="searchBykeyword(searchkeyword.value)">
+                </div>
+            </div>
+        </div>
+          
+          <div class="conatiner text-center">
+    <!-- <div class="card">
+        <div class="card-body">
+            <ul class="nav navbar navbar-left d-flex d-inline-flex ">
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a  class="nav-link d-inline-flex">All products</a>
+                </li>
+
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a class="nav-link d-inline-flex" (click)="filter('Ayurvedic')">Ayurvedic</a>
+                </li>
+
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a class="nav-link d-inline-flex" routerLink="/homeopath">Homeopathy</a>
+                </li>
+
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a class="nav-link d-inline-flex" routerLink="/eye">Eyewear</a>
+                </li>
+
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a class="nav-link d-inline-flex" routerLink="/fit">Fitness</a>
+                </li>
+
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a class="nav-link d-inline-flex" routerLink="/baby">Baby</a>
+                </li>
+
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a class="nav-link d-inline-flex" routerLink="/skin">Skin-care</a>
+                </li>
+
+                <li class="nav-item d-inline-flex  align-items-center mr-2">
+                    <a class="nav-link d-inline-flex" routerLink="/allopath">Allopathic</a>
+                </li>
+
+                
+              </ul>
+        </div>
+    </div> -->
+</div>
+
+
+        <div class="card  pt-3" style="background:white;border: none;">
+            <p class="h5  rounded font-weight-bold" >ALL Products</p> 
+            <div class="row">
+                <div class="col-sm-2" *ngFor="let pr of productDetails ">
+                    <div class="card shadow"style="">
+                        <div class="card-body">
+                            <h3 style="color: rgb(73, 19, 237);">Get {{((pr.productPrice - pr.discountPrice)/pr.productPrice) * 100 | number: '1.0-0'}} % Off</h3>
+                             <img [src]="pr.productImage[0].url" class="card-img-top">
+                             <h3 class="card-title" style="flex: 0 0 auto;">{{pr.productName}}</h3>
+                             <del style="color: gray;">Price ₹  {{pr.productPrice}}</del>
+                             <p class="text-right" style="font-size:large;">Price : ₹  {{pr.discountPrice}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" (click)="viewProduct(pr.productId)">View</button>
+                            <button class="btn btn-warning ml-3" (click)="addCart(pr.productId)">Add to cart</button>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+
+
+
+
+
